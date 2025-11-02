@@ -61,13 +61,22 @@ Safer and faster than using #pragma omp critical on shared map.
 
 ⚡ Performance Results
 🧾 Timing Data
-Threads (p)	T<sub>P</sub> (ms)	T<sub>P</sub> (s)	Speedup (T<sub>S</sub>/T<sub>P</sub>)	Efficiency (Speedup/p)
-1	225.595	0.2256	1.108	1.108
-2	135.667	0.1357	1.842	0.921
-4	81.594	0.0816	3.064	0.766
-8	61.976	0.0620	4.032	0.504
+<table>
+  <thead>
+    <tr>
+      <th>Threads (p)</th><th>T_P (ms)</th><th>T_P (s)</th>
+      <th>Speedup (T_S/T_P)</th><th>Efficiency (Speedup/p)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>225.595</td><td>0.2256</td><td>1.108</td><td>1.108</td></tr>
+    <tr><td>2</td><td>135.667</td><td>0.1357</td><td>1.842</td><td>0.921</td></tr>
+    <tr><td>4</td><td>81.594</td><td>0.0816</td><td>3.064</td><td>0.766</td></tr>
+    <tr><td>8</td><td>61.976</td><td>0.0620</td><td>4.032</td><td>0.504</td></tr>
+  </tbody>
+</table>
+<p><strong>Serial baseline T_S ≈ 0.250 s</strong></p>
 
-Serial baseline T<sub>S</sub> ≈ 0.250 s
 
 📈 Speedup & Efficiency Graphs
 Metric	Plot
