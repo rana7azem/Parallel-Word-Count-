@@ -114,6 +114,8 @@ Even if 90% of a program is parallelized, the remaining serial part limits total
 This matches the observed results — scaling is sub-linear due to the serial fraction and OpenMP overhead.
 
 🧰 Build & Run (Windows/MSYS2 UCRT64)
+
+
 🛠 Build
 g++ -O3 -std=c++17 src/wc_serial.cpp -o wc_serial.exe -Wl,-subsystem,console
 g++ -O3 -std=c++17 -fopenmp src/wc_parallel.cpp -o wc_parallel.exe -Wl,-subsystem,console
