@@ -79,8 +79,16 @@ Safer and faster than using #pragma omp critical on shared map.
 
 
 📈 Speedup & Efficiency Graphs
-Metric	Plot
-Speedup vs Threads	
+	<table align="center">
+  <tr>
+    <td align="center"><b>Speedup vs Threads</b></td>
+    <td align="center"><b>Efficiency vs Threads</b></td>
+  </tr>
+  <tr>
+    <td><img src="speedup_plot.png" width="400"></td>
+    <td><img src="efficiency_plot.png" width="400"></td>
+  </tr>
+</table>
 
 
 Efficiency vs Threads	
