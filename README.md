@@ -117,6 +117,8 @@ This matches the observed results — scaling is sub-linear due to the serial fr
 
 
 🛠 Build
+
+
 g++ -O3 -std=c++17 src/wc_serial.cpp -o wc_serial.exe -Wl,-subsystem,console
 g++ -O3 -std=c++17 -fopenmp src/wc_parallel.cpp -o wc_parallel.exe -Wl,-subsystem,console
 
