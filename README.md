@@ -1,6 +1,6 @@
  Parallel Word Count Project 
 
-**Author:** Rana  
+**Author:** Rana and wafaa 
 **Course:** Parallel & Distributed Computing  
 **Phase:** 1 — Parallelization and Performance Analysis  
 
@@ -77,33 +77,16 @@ Speedup & Efficiency Graphs
     <td align="center"><b>Efficiency vs Threads</b></td>
   </tr>
   <tr>
-    <td><img src="speedup_plot.png" width="400"></td>
-    <td><img src="efficiency_plot.png" width="400"></td>
+    <td><img src="peedup vs threads.png" width="400"></td>
+    <td><img src="efficiencyvsthread.png" width="400"></td>
   </tr>
 </table>
 
 
-Efficiency vs Threads	
-Analysis Summary
-Observations
-
-Speedup improves as threads increase, but efficiency decreases gradually.
-
-At 8 threads → ~4× speedup (≈ 50% efficiency).
-
-Caused by:
-
-File I/O being serial.
-
-Merge phase overhead.
-
-Thread synchronization and cache effects.
 
 Amdahl’s Law
 
-Even if 90% of a program is parallelized, the remaining serial part limits total speedup.
-
-This matches the observed results — scaling is sub-linear due to the serial fraction and OpenMP overhead.
+The results follow Amdahl’s Law because the program does not speed up perfectly when more threads are added. The speedup increases at first, but the improvement becomes much smaller after 4 threads. Efficiency also drops a lot as threads increase. This means there is still some serial work and overhead in the program, so not all threads can work at the same time. Because of this, the program cannot keep scaling forever, and adding more threads gives smaller and smaller performance gains.
 
 Build & Run (Windows/MSYS2 UCRT64)
 
@@ -119,4 +102,4 @@ Run
 OMP_NUM_THREADS=4 ./wc_parallel.exe data/big.txt 10
 
 
-Amdahl, G. M. (1967). Validity of the Single Processor Approach to Achieving Large Scale Computing Capabilities
+
