@@ -1,0 +1,12 @@
+cat -> 400000
+dog -> 400000
+mat -> 800000
+MODE=parallel
+MS=96.1427
+on -> 800000
+sat -> 800000
+the -> 1600000
+THREADS=4
+TOKENS=4800000
+TOP6:
+UNIQUE=6
