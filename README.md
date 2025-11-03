@@ -83,29 +83,12 @@ Speedup & Efficiency Graphs
 </table>
 
 
-Efficiency vs Threads	
-Analysis Summary
-Observations
 
-Speedup improves as threads increase, but efficiency decreases gradually.
-
-At 8 threads → ~4× speedup (≈ 50% efficiency).
-
-Caused by:
-
-File I/O being serial.
-
-Merge phase overhead.
-
-Thread synchronization and cache effects.
 
 Amdahl’s Law
 
-Even if 90% of a program is parallelized, the remaining serial part limits total speedup.
+The results follow Amdahl’s Law because the program does not speed up perfectly when more threads are added. The speedup increases at first, but the improvement becomes much smaller after 4 threads. Efficiency also drops a lot as threads increase. This means there is still some serial work and overhead in the program, so not all threads can work at the same time. Because of this, the program cannot keep scaling forever, and adding more threads gives smaller and smaller performance gains.
 
-This matches the observed results — scaling is sub-linear due to the serial fraction and OpenMP overhead.
-
-Build & Run (Windows/MSYS2 UCRT64)
 
 
 Build
