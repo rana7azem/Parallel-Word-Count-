@@ -87,7 +87,7 @@ Speedup & Efficiency Graphs
 
 Amdahl’s Law
 
-The results follow Amdahl’s Law because the program does not speed up perfectly when more threads are added. The speedup increases at first, but the improvement becomes much smaller after 4 threads. Efficiency also drops a lot as threads increase. This means there is still some serial work and overhead in the program, so not all threads can work at the same time. Because of this, the program cannot keep scaling forever, and adding more threads gives smaller and smaller performance gains.
+Based on the measured speedup values, the performance follows Amdahl’s Law which states that the maximum speedup of a parallel program is limited by the part of the code that cannot be parallelized. In the results, we see good improvement when going from 1 to 2 and 4 threads, but going from 4 to 8 threads only increases speedup from 2.57 to 3.27. Meanwhile, efficiency drops from 1.00 at 1 thread to only 0.41 at 8 threads. This tells us that the program contains a serial portion that becomes increasingly noticeable as more threads are added. In other words, even though more cores are available, not all threads can stay busy all the time because some work must still be done sequentially. Therefore the application does not scale linearly, it experiences diminishing returns, which is exactly the scalability limit Amdahl’s Law predicts.
 
 
 
