@@ -1,4 +1,4 @@
-# 🧮 Parallel Word Count Project (Phase 1)
+# Parallel Word Count Project 
 
 **Author:** Rana  
 **Course:** Parallel & Distributed Computing  
@@ -6,7 +6,7 @@
 
 ---
 
-## 🧠 Project Overview
+## Project Overview
 
 The goal of this project is to implement a **Word Count** application using:
 - A **sequential (serial)** version.
@@ -16,16 +16,16 @@ The program reads a large text file, tokenizes all words (case-insensitive), cou
 
 ---
 
-## 🧩 Implementation Details
+## Implementation Details
 
-### 🧱 Sequential Version (`src/wc_serial.cpp`)
+### sequential Version (`src/wc_serial.cpp`)
 - Reads the file line by line.
 - Splits words on non-alphanumeric characters.
 - Converts all characters to lowercase.
 - Uses `unordered_map<string, long long>` to store word frequencies.
 - Prints results alphabetically.
 
-### ⚙️ Parallel Version (`src/wc_parallel.cpp`)
+### Parallel Version (`src/wc_parallel.cpp`)
 - Uses **OpenMP** for multithreading.
 - Each thread builds a **local map** to avoid race conditions.
 - After processing, all local maps are **merged serially** into a global map.
@@ -40,7 +40,7 @@ The program reads a large text file, tokenizes all words (case-insensitive), cou
   }
 
 
-  🧮 Correctness Check
+  Correctness Check
 
 To verify correctness between serial and parallel versions:
 
@@ -49,9 +49,9 @@ OMP_NUM_THREADS=4 ./wc_parallel.exe data/big.txt 100000 | sort > out_parallel.tx
 diff out_serial.txt out_parallel.txt
 
 
-✅ If no output, both versions match perfectly.
+If no output, both versions match perfectly.
 
-🧠 Avoiding Race Conditions
+Avoiding Race Conditions
 
 Each thread maintains its own unordered_map → No shared writes.
 
@@ -59,8 +59,8 @@ Final merging happens after all threads finish.
 
 Safer and faster than using #pragma omp critical on shared map.
 
-⚡ Performance Results
-🧾 Timing Data
+Performance Results
+Timing Data
 <table>
   <thead>
     <tr>
@@ -78,7 +78,7 @@ Safer and faster than using #pragma omp critical on shared map.
 <p><strong>Serial baseline T_S ≈ 0.250 s</strong></p>
 
 
-📈 Speedup & Efficiency Graphs
+Speedup & Efficiency Graphs
 	<table align="center">
   <tr>
     <td align="center"><b>Speedup vs Threads</b></td>
@@ -92,8 +92,8 @@ Safer and faster than using #pragma omp critical on shared map.
 
 
 Efficiency vs Threads	
-📊 Analysis Summary
-🧩 Observations
+Analysis Summary
+Observations
 
 Speedup improves as threads increase, but efficiency decreases gradually.
 
@@ -107,21 +107,21 @@ Merge phase overhead.
 
 Thread synchronization and cache effects.
 
-⚖️ Amdahl’s Law
+Amdahl’s Law
 
 Even if 90% of a program is parallelized, the remaining serial part limits total speedup.
 
 This matches the observed results — scaling is sub-linear due to the serial fraction and OpenMP overhead.
 
-🧰 Build & Run (Windows/MSYS2 UCRT64)
+Build & Run (Windows/MSYS2 UCRT64)
 
 
-🛠 Build
+Build
 
 g++ -O3 -std=c++17 src/wc_serial.cpp -o wc_serial.exe -Wl,-subsystem,console
 g++ -O3 -std=c++17 -fopenmp src/wc_parallel.cpp -o wc_parallel.exe -Wl,-subsystem,console
 
-▶️ Run
+Run
 
 ./wc_serial.exe data/big.txt
 OMP_NUM_THREADS=4 ./wc_parallel.exe data/big.txt 10
