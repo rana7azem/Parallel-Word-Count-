@@ -1,4 +1,4 @@
-# Parallel Word Count Project 
+ Parallel Word Count Project 
 
 **Author:** Rana  
 **Course:** Parallel & Distributed Computing  
@@ -60,22 +60,14 @@ Final merging happens after all threads finish.
 Safer and faster than using #pragma omp critical on shared map.
 
 Performance Results
-Timing Data
-<table>
-  <thead>
-    <tr>
-      <th>Threads (p)</th><th>T_P (ms)</th><th>T_P (s)</th>
-      <th>Speedup (T_S/T_P)</th><th>Efficiency (Speedup/p)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>1</td><td>225.595</td><td>0.2256</td><td>1.108</td><td>1.108</td></tr>
-    <tr><td>2</td><td>135.667</td><td>0.1357</td><td>1.842</td><td>0.921</td></tr>
-    <tr><td>4</td><td>81.594</td><td>0.0816</td><td>3.064</td><td>0.766</td></tr>
-    <tr><td>8</td><td>61.976</td><td>0.0620</td><td>4.032</td><td>0.504</td></tr>
-  </tbody>
-</table>
-<p><strong>Serial baseline T_S ≈ 0.250 s</strong></p>
+
+| Threads (p) |   T_P (s) | Speedup (T_S / T_P) | Efficiency (Speedup/p) |
+| ----------: | --------: | ------------------: | ---------------------: |
+|           1 |     0.157 |               1.000 |                  1.000 |
+|           2 |     0.112 |               1.402 |                  0.701 |
+|           4 | 0.0610001 |               2.574 |                  0.643 |
+|           8 | 0.0479999 |               3.271 |                  0.409 |
+
 
 
 Speedup & Efficiency Graphs
@@ -126,8 +118,5 @@ Run
 ./wc_serial.exe data/big.txt
 OMP_NUM_THREADS=4 ./wc_parallel.exe data/big.txt 10
 
-References
-
-OpenMP API Specification v5.2
 
 Amdahl, G. M. (1967). Validity of the Single Processor Approach to Achieving Large Scale Computing Capabilities
