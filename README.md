@@ -1,6 +1,6 @@
  Parallel Word Count Project 
 
-**Author:** Rana  
+**Author:** Rana and wafaa
 **Course:** Parallel & Distributed Computing  
 **Phase:** 1 — Parallelization and Performance Analysis  
 
@@ -77,8 +77,8 @@ Speedup & Efficiency Graphs
     <td align="center"><b>Efficiency vs Threads</b></td>
   </tr>
   <tr>
-    <td><img src="speedup_plot.png" width="400"></td>
-    <td><img src="efficiency_plot.png" width="400"></td>
+    <td><img src="speedup vs threads" width="400"></td>
+    <td><img src="efficiencyvsthread.png" width="400"></td>
   </tr>
 </table>
 
