@@ -1,4 +1,4 @@
-<img width="959" height="423" alt="image" src="https://github.com/user-attachments/assets/61f7a300-5fbb-486b-be8c-7b5fdce1f415" /># 1. Introduction
+# 1. Introduction
 Text word counting is a classical problem in text processing, frequently applied in data analysis, natural language processing, and search engines. The problem of sequential counting of words in growing larger text files becomes slower and inefficient. In order to speed up the word-counting process on multi-core processors by dividing the workload among multiple threads, this project uses OpenMP in C++ to implement a Parallel Word Count system.
 
 # 2. Project Objectives
@@ -92,9 +92,7 @@ Performance Results
 
 Speedup & Efficiency Graphs
 
-Speedup vs Threads	Efficiency vs Threads
-	
-<img width="959" height="423" alt="image" src="https://github.com/user-attachments/assets/ad65b394-0e8f-4f72-a919-e4b42e638cb3" />
+<img width="959" height="423" alt="image" src="https://github.com/user-attachments/assets/61f7a300-5fbb-486b-be8c-7b5fdce1f415" />	
 
 
 
