@@ -126,7 +126,7 @@ Run
 ./wc_serial.exe data/big.txt
 OMP_NUM_THREADS=4 ./wc_parallel.exe data/big.txt 10
 
-🧾 References
+References
 
 OpenMP API Specification v5.2
 
