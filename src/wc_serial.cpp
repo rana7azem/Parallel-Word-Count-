@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <omp.h> 
 using namespace std;
 
 static inline bool is_word_char(unsigned char c){ return std::isalnum(c); }
@@ -20,6 +21,10 @@ int main(int argc, char** argv){
     freq.reserve(1<<15);
 
     string line, token;
+
+    double t_total_start = omp_get_wtime(); 
+    double t_comp_start = omp_get_wtime();  
+
     while(getline(fin, line)){
         token.clear();
         for(unsigned char c : line){
@@ -29,12 +34,30 @@ int main(int argc, char** argv){
         if(!token.empty()){ ++freq[token]; token.clear(); }
     }
 
+    double t_comp_end = omp_get_wtime();   
+    double t_total_end = omp_get_wtime();  
+
+    double T_total = t_total_end - t_total_start; 
+    double T_comp  = t_comp_end - t_comp_start;   
+    double T_sync  = 0.0;                         
+    double T_inter = T_total - (T_comp + T_sync);
+
+
+    cout << "MODE=serial\n";;
+    cout << "T_total(s)=" << T_total << "\n";
+    cout << "T_comp(s)="  << T_comp  << "\n";
+    cout << "T_sync(s)="  << T_sync  << "\n";
+    cout << "T_inter(s)=" << T_inter << "\n";
+
+   
     vector<pair<string,long long>> items(freq.begin(), freq.end());
     sort(items.begin(), items.end(),
          [](auto &a, auto &b){ return a.first < b.first; });
 
+    int printed = 0;
     for(auto &kv : items){
         cout << kv.first << " -> " << kv.second << "\n";
+        if(++printed >= 10) break;
     }
     return 0;
 }
