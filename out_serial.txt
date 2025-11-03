@@ -1,0 +1,11 @@
+MODE=serial
+T_total(s)=0.188
+T_comp(s)=0.188
+T_sync(s)=0
+T_inter(s)=0
+cat -> 400000
+dog -> 400000
+mat -> 800000
+on -> 800000
+sat -> 800000
+the -> 1600000

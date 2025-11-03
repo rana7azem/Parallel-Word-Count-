@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
     string line;
     while (getline(fin, line)) lines.push_back(move(line));
 
-    auto t0 = chrono::steady_clock::now();
+    double t_total_start = omp_get_wtime();   
 
     int n = lines.size();
     int max_threads = omp_get_max_threads();
@@ -49,6 +49,7 @@ int main(int argc, char** argv) {
             if (!token.empty()) { ++mp[token]; token.clear(); }
         }
     }
+
     unordered_map<string, long long> freq;
     freq.reserve(1 << 16);
     long long total_tokens = 0;
@@ -60,8 +61,8 @@ int main(int argc, char** argv) {
         }
     }
 
-    auto t1 = chrono::steady_clock::now();
-    double ms = chrono::duration<double, milli>(t1 - t0).count();
+    double t_total_end = omp_get_wtime();  
+    double T_total = t_total_end - t_total_start;
 
     vector<pair<string, long long>> items(freq.begin(), freq.end());
     if (topN > (int)items.size()) topN = (int)items.size();
@@ -74,7 +75,7 @@ int main(int argc, char** argv) {
     cout << "THREADS=" << omp_get_max_threads() << "\n";
     cout << "TOKENS=" << total_tokens << "\n";
     cout << "UNIQUE=" << freq.size() << "\n";
-    cout << "MS=" << ms << "\n";
+    cout << "T_total(s)=" << T_total << "\n";   
     cout << "TOP" << topN << ":\n";
     for (int i = 0; i < topN; ++i) {
         cout << items[i].first << " -> " << items[i].second << "\n";
