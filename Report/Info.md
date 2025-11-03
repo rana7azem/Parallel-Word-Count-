@@ -79,6 +79,17 @@ freq.reserve(1 << 16);
 
 Merging maps is linear in total distinct words.
 
+Performance Results
+
+| Threads (p) |   T_P (s) | Speedup (T_S / T_P) | Efficiency (Speedup/p) |
+| ----------: | --------: | ------------------: | ---------------------: |
+|           1 |     0.157 |               1.000 |                  1.000 |
+|           2 |     0.112 |               1.402 |                  0.701 |
+|           4 | 0.0610001 |               2.574 |                  0.643 |
+|           8 | 0.0479999 |               3.271 |                  0.409 |
+
+
+
 
 
 # 6. Expected Results
