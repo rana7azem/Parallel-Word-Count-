@@ -77,7 +77,7 @@ Speedup & Efficiency Graphs
     <td align="center"><b>Efficiency vs Threads</b></td>
   </tr>
   <tr>
-    <td><img src="speedup vs threads" width="400"></td>
+    <td><img src="speedup vs threads.png" width="400"></td>
     <td><img src="efficiencyvsthread.png" width="400"></td>
   </tr>
 </table>
