@@ -7,9 +7,7 @@
 #include <string>
 using namespace std;
 
-/* -----------------------------------------------------------
-   Helper function: merge two hash maps (for rank 0 final result)
--------------------------------------------------------------*/
+
 void merge_maps(unordered_map<string,int>& A,
                 const unordered_map<string,int>& B)
 {
@@ -44,11 +42,11 @@ int main(int argc, char** argv) {
         full_text = buffer.str();
     }
 
-    // Step 2: Broadcast the file length
+    // Broadcast the file length
     int N = full_text.size();
     MPI_Bcast(&N, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
-    // Step 3: Rank 0 computes variable chunk sizes (don't cut words)
+    // Rank 0 computes variable chunk sizes (don't cut words)
     vector<int> sendcounts(size, 0), displs(size, 0);
 
     if (rank == 0)
@@ -71,29 +69,25 @@ int main(int argc, char** argv) {
         }
     }
 
-    // Step 4: Scatter counts so each rank knows its size
+    // Scatter counts so each rank knows its size
     int local_size = 0;
     MPI_Scatter(sendcounts.data(), 1, MPI_INT,
                 &local_size, 1, MPI_INT,
                 0, MPI_COMM_WORLD);
 
-    // Step 5: Receive the chunk
+    //  Receive the chunk
     string local_chunk(local_size, ' ');
     MPI_Scatterv(full_text.data(), sendcounts.data(), displs.data(), MPI_CHAR,
                  local_chunk.data(), local_size, MPI_CHAR,
                  0, MPI_COMM_WORLD);
 
-    // Step 6: Local word count
+    // Local word count
     unordered_map<string,int> local_map;
     stringstream ss(local_chunk);
     string word;
     while (ss >> word)
         local_map[word]++;
 
-    // --------------------------------------------------------------
-    // Step 7: Send results back using MPI_Gatherv
-    //         (convert map → string, gather strings)
-    // --------------------------------------------------------------
 
     // Convert local map to serialized string: "word count\n"
     string local_serial = "";
@@ -125,9 +119,6 @@ int main(int argc, char** argv) {
                 final_buffer.data(), recvcounts.data(), displs2.data(), MPI_CHAR,
                 0, MPI_COMM_WORLD);
 
-    // --------------------------------------------------------------
-    // Step 8: Rank 0 merges all partial maps
-    // --------------------------------------------------------------
 
     if (rank == 0)
     {
