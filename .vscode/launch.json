@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Rana7/OneDrive/Desktop/Parallel-WordCount-Project/Parallel-Word-Count--3/SRC",
-      "program": "c:/Users/Rana7/OneDrive/Desktop/Parallel-WordCount-Project/Parallel-Word-Count--3/SRC/build/Debug/outDebug",
+      "cwd": "c:/Users/DELL/Desktop/Parallel-Word-Count-/Report/diagrams",
+      "program": "c:/Users/DELL/Desktop/Parallel-Word-Count-/Report/diagrams/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
