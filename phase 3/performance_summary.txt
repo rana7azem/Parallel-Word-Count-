@@ -1,0 +1,5 @@
+Performance Analysis Summary
+----------------------------
+Average Latency (steady-state): 201.52 ms
+Throughput: 0.75 requests/sec
+Recovery Time: 0.75 seconds

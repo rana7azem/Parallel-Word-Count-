@@ -1,0 +1,19 @@
+
+ 
+Performance Metrics Summary 
+The following table summarizes the key performance metrics computed from the experimental  
+Performance Metrics 
+Metric  Value 
+Average Latency (ms)  201.52 
+Throughput 
+(requests/sec) 
+0.75 
+Recovery Time (sec)  0.75 
+ 
+Analysis 
+The system achieved an average latency of 201.52 ms, indicating stable response times 
+during steady-state operation after excluding the warm-up phase.  The observed throughput of 0.75 requests per second reflects consistent request processing 
+under the given workload and retry mechanism.  Following a replica failure, the system demonstrated fast recovery, with a recovery time of 
+0.75 seconds, confirming effective fault tolerance and rapid redirection of requests to the 
+remaining active replica. 
+ 
