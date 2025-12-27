@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Virtual environments inside phase 3
+phase 3/venv/
+
+# Binaries
+*.exe
+wc_mpi
+wc_parallel
+wc_serial
+
+# OS / Editor
+.vscode/
+.DS_Store
