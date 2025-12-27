@@ -1,0 +1,4 @@
+Metric,Value
+Average Latency (ms),201.52
+Throughput (requests/sec),0.75
+Recovery Time (sec),0.75
