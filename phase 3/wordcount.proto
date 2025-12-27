@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+message WordCountRequest {
+  string text = 1;
+  string request_id = 2;
+}
+
+message WordCountResponse {
+  string output = 1;      // "hello:2 world:1"
+  float latency_ms = 2;
+}
+
+message HealthStatus {
+  bool alive = 1;
+}
+
+service WordCountService {
+  rpc CountWords(WordCountRequest) returns (WordCountResponse);
+  rpc Health(google.protobuf.Empty) returns (HealthStatus);
+}
+
